@@ -279,6 +279,7 @@ int x = n.intValue();               //언박싱
 Integer n = 5;      //자동 박싱
 int x = n;          //자동 언박싱
 ```
+
 ### String, StringBuffer, StringTokenizer, Math 클래스
 - String을 이용하여 문자열을 표현하고 문자열을 조작할 수 있다.
 
@@ -287,3 +288,48 @@ int x = n;          //자동 언박싱
 - StringBuffer는 String 클래스와 달리 내부 버퍼를 가지고 있어, 문자열을 변경할 수 있다.
 
 - Math 클래스는 "**static**" 메소드로만 구성되며, 많은 산술 연산 메소드를 제공한다.
+
+## Chapter 07_컬렉션과 제네릭
+### 컬렉션과 제네릭 개념
+- **컬렉센**은 요소들의 리스트나 집합을 관리하는 자료 구조로서 크기를 자동 조절하므로, 배열과 달리 요소의 개수에 신경 쓸 필요 없다. 또한, 요소의 추가, 삭제, 검색 등을 쉽게 할 수 있다.
+
+- 주요 컬렉션은 Vector< E >, ArrayList< E >, HashMap< K, V >, LinkedList< E >, Stack< E > 등이다.
+
+- **제네릭**은 일반화시킨 타입의 매개 변수를 이용하여 클래스, 인터페이스, 메소드를 일반화시키는 기법이다. 그러므로 일반화시킨 타입에 구체적인 타입을 지정하여 특정 타입으로만 사용할 수 있다.
+
+- 컬렉션은 JDK 1.5 버전 이후 **제네릭**기법으로 만들어졌다.
+
+- 컬렉션은 구체적인 타입을 지정하여 사용한다. 다음은 Vector< E >를 정수만 처리할 수 있도록 < E >에 Integer 타입을 주어 생성한 코드이다.
+```java
+Vector<Integer> v = new Vector<Integer>();
+```
+
+- 컬렉션의 요소로는 오직 **객체**만 사용된다. int, char, double 등의 기본 타입을 컬렉션의 요소로 삽입하려면 Wrapper 클래스를 이용하여 기본 타입을 객체로 만들어 사용하면 된다.
+
+- JDK 1.5부터는 **자동 박싱/자동 언박싱**이 지원되어 기본 타입을 컬렉션에 바로 삽입하고 추출할 수 있다.
+
+### 제네릭 컬렉션 활용
+- **Vector< E >**는 배열을 가변 크기로 다룰 수 있게 한 Vector 컬렉션으로서, 객체의 삽입, 삭제, 이동이 쉽고, 배열처럼 인덱스 번호로 원소를 접근할 수 있다.
+
+- **ArrayList< E >** 역시 배열을 가변 크기로 다룰 수 있게 한 ArrayList 컬렉션으로서, Vector< E >와 거의 유사하나 멀티스레드 동기화를 지원하지 않는다. 다음은 Point 클래스의 객체만 다루는 ArrayList를 생성하는 코드이다.
+```java
+ArrayList<Point> a = new ArrayList<Point>();
+```
+
+- HashMap< K, V >은 **키**와 **값**의 쌍을 하나의 원소로 다루는 HashMap 컬렉선으로서, 인덱스로는 검색할 수 없다. 다음은 키가 문자열이고, 값이 정수인 HashMap을 생성하는 코드이다.
+```java
+HashMap<String, Integer> h = new Vector<Integer>();
+```
+
+- Iterator< E >는 Collection< E > 인터페이스를 구현하여 컬렉션의 원소를 순차적으로 검색할 수 있는 컬렉션이다. Collection< E >를 구현한 모든 컬렉션에 **iterator()** 메소드를 호출하면 Iterator 객체를 리턴하며, 이 객체를 이용하여 인덱스 없이 컬렉션의 요소를 순차 검색할 수 있다.
+```java
+Vector<Integer> v = new Vector<Integer>();
+Iterator<Integer> it = v.iterator();
+```
+
+### 제네릭 만들기
+- 제네릭 클래스나 인터페이스는 클래스나 인터페이스 이름 다음에 일반화된 타입 매개 변수를 '<'와 '>' 사이에 추가한다.
+
+- 제네릭 타입에 Integer나 String 등의 구체적인 타입을 대입하면, 특정 타입만 다루는 컬렉션 객체가 생성된다.
+
+## Chapter 08_자바 GUI 스윙 기초
