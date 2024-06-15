@@ -4,7 +4,7 @@
  * 예제 : 13-1. FileReader로 텍스트 파일 읽기
  */
 
- package chapter13;                // chapter13 패키지에 속하는 클래스임을 명시
+ package chapter13.example.ex01;                // chapter13 패키지에 속하는 클래스임을 명시
  import java.io.*;                 // 자바 입출력 관련 클래스들을 포함하는 패키지를 임포트
  
  public class FileReaderEx {       											// FileReaderEx 클래스 선언

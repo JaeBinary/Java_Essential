@@ -4,7 +4,7 @@
  * 예제 : 13-5. File 클래스를 활용한 파일 관리
  */
 
- package chapter13;                // chapter13 패키지에 속하는 클래스임을 명시
+ package chapter13.example.ex05;                // chapter13 패키지에 속하는 클래스임을 명시
  import java.io.File;              // 자바 파일 입출력 관련 클래스를 포함하는 패키지를 임포트
  
  public class FileClassExample {   																// FileClassExample 클래스 선언
